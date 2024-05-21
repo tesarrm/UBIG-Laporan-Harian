@@ -1,5 +1,6 @@
 # Define the base path and GitHub raw URL base
 $basePath = "C:\Users\Tesar\Desktop\lap-harian\2-botpress-nobox"
+# $basePath = "C:\Users\Tesar\Desktop\lap-harian\2-botpress-nobox"
 $baseUrl = "https://raw.githubusercontent.com/tesarrm/UBIG-Laporan-Harian/main/2-botpress-nobox"
 
 # Function to generate HTML content
@@ -18,6 +19,15 @@ function Generate-HTMLContent {
         return $null
     }
 
+    # Extract YouTube URL if present
+    $youtubeEmbed = ""
+    if ($teksContent -match "https:\/\/youtu\.be\/([^\s]+)") {
+        $youtubeId = $matches[1]
+        $youtubeEmbed = "<iframe frameborder='0' src='//www.youtube.com/embed/$youtubeId' width='640' height='360' class='note-video-clip'></iframe><br><br>"
+        # Remove YouTube link from teksContent
+        $teksContent = $teksContent -replace "https:\/\/youtu\.be\/([^\s]+)", ""
+    }
+
     # Get list of images
     $imageFolderPath = Join-Path $folderPath "gambar"
     $images = Get-ChildItem $imageFolderPath -Filter *.png | Sort-Object Name
@@ -32,7 +42,7 @@ function Generate-HTMLContent {
     <title>Laporan Harian</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
-        .content { max-width: 800px; margin: auto; }
+        .content { max-width: 800px; margin: auto; text-align: left !important; }
         .text-content { margin-bottom: 20px; }
         .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .grid-item { border: 1px solid #ddd; padding: 10px; }
@@ -42,6 +52,14 @@ function Generate-HTMLContent {
 </head>
 <body>
     <div class="content">
+"@
+
+    # Add YouTube embed if present
+    if ($youtubeEmbed) {
+        $htmlContent += $youtubeEmbed + "`n"
+    }
+
+    $htmlContent += @"
         <div class="text-content">
             <pre>$teksContent</pre>
         </div>
