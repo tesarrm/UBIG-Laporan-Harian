@@ -2,7 +2,7 @@
 
 # Define the base path and GitHub raw URL base
 # basePath="/home/tesar/Desktop/lap-harian/3-frappe"
-basePath="/home/tesar/UBIG-Laporan-Harian/3-frappe"
+basePath="/home/tesar/UBIG-Laporan-Harian/4-siprakerin"
 # basePath="/home/tesar/Desktop/lap-harian/2-botpress-nobox"
 baseUrl="https://raw.githubusercontent.com/tesarrm/UBIG-Laporan-Harian/main/4-siprakerin"
 
