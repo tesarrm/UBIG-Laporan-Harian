@@ -35,7 +35,7 @@ generate_html_content() {
 
     # Get list of images
     imageFolderPath="$folderPath/gambar"
-    images=$(find "$imageFolderPath" -type f \( -name "*.png" -o -name "*.jpg" \) | sort)
+    images=$(find "$imageFolderPath" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg"  \) | sort)
 
 
     # Start building the HTML content
