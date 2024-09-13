@@ -1,0 +1,4 @@
+- Menghitung kuota yang belum terisi dan status
+- Validasi jumlah kuota sesuai jenis kelamin dan jurusan
+- Menampilkan tabel total
+- Format kelas
