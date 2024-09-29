@@ -1,0 +1,14 @@
+Tesar Rahmat Maulana (XII RPL A)
+- Full field Guru
+- Perbaiki view add, edit, list
+	- Guru
+	- industri
+- Button action dropdodwn
+	- Guru
+	- Industri
+- Nonaktif
+	- Guru
+	- Industri
+- Managemen nonaktif
+- Perbaiki veiw kuota industri
+- Perbaiki view jurnal
